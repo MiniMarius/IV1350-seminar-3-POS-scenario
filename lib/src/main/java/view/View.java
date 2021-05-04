@@ -32,9 +32,5 @@ public class View {
         controller.discountRequest(8);
         Double change = controller.makePayment(500.00);
         System.out.println(change);
-
-
-
-
     }
 }

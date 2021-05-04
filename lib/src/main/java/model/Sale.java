@@ -6,11 +6,10 @@ import java.util.ArrayList;
 
 public class Sale {
     private ArrayList<Item> scannedItems = new ArrayList<>();
-    private SaleInformation saleInformation;
     private Double total;
 
     public Sale () {
-        SaleInformation saleInformation = new SaleInformation();
+        total = 0.0;
     }
 
     public void UpdateRunningTotal(Item item, Integer amountOfitems) {
@@ -35,6 +34,7 @@ public class Sale {
         total -= discount.GetDiscount();
     }
     public SaleInformation endSale() {
+        SaleInformation saleInformation = new SaleInformation();
         saleInformation.confirmSale(scannedItems);
         return saleInformation;
     }

@@ -38,6 +38,6 @@ tasks.named('test') {
 }
 application {
     //define the main class for the application.
-    mainClass = 'startup/Main.java'
+    mainClass = 'startup.Main'
 
 }

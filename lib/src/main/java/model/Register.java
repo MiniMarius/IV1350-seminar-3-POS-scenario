@@ -15,8 +15,9 @@ public class Register {
      * @param sale The sale instance used for calculating change of change
      */
     public Double calculateChange(Payment payment, Sale sale) {
-        change += (payment.getAmount() - sale.getTotal());
-        Double changeToGiveBack =
+        Double change = (payment.getAmount() - sale.getTotal());
+        this.change += change;
+        return change;
     }
 
     /**
