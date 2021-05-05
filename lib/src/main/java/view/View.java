@@ -23,14 +23,14 @@ public class View {
     public void sampleExecution(){
         controller.makeNewSale();
         System.out.println("New sale started");
-        controller.enterItem(3, 5);
-        controller.enterItem(8, 2);
-        controller.enterItem(6, 1);
+        System.out.println(controller.enterItem(3, 1));
+        System.out.println(controller.enterItem(11, 1));
+        System.out.println(controller.enterItem(6, 1));
 
-        controller.endSale();
+        System.out.println("Sale ended" + "\n" + "Total with taxes: " + controller.endSale());
 
-        controller.discountRequest(8);
+        System.out.println("Discounted Total with taxes: " + controller.discountRequest(8));
         Double change = controller.makePayment(500.00);
-        System.out.println(change);
+        System.out.println("Change to customer: " + change);
     }
 }

@@ -39,9 +39,14 @@ public class SaleInformation {
 
     @Override
     public String toString() {
-        return "timeOfPurchase: " + timeOfPurchase + '\'' +
-                ", payment: " + payment +
-                ", appliedDiscount" + appliedDiscount +
-                '}';
+        return "SaleInformation" + "\n" + "---------------" + "\n" +
+                "Items bought: " + boughtItems + "\n" +
+                "Time Of Purchase: " + timeOfPurchase + "\n" +
+                "AppliedDiscount: " + "-" + appliedDiscount + "\n" +
+                "Payment: " + payment;
+    }
+
+    public ArrayList<Item> getBoughtItems() {
+        return boughtItems;
     }
 }

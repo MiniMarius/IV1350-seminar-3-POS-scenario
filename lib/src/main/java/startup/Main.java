@@ -20,7 +20,5 @@ public class Main {
         Controller controller = new Controller(printer, discountCatalog, externalAccountingSystem, externalInventorySystem);
         View view = new View(controller);
         view.sampleExecution();
-
-
     }
 }

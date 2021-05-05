@@ -25,7 +25,7 @@ public class Item {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.vat = vat;
+        this.vat = (vat / 100) + 1;
         this.storeKeepingUnitNumber = storeKeepingUnitNumber;
     }
 
@@ -74,7 +74,7 @@ public class Item {
      * @return a string representation of the item
      */
     public String toString() {
-        return "Item:" +
+        return "Item " +
                 "name: " + name + '\'' +
                 ", description: " + description + '\'' +
                 ", price: " + price +

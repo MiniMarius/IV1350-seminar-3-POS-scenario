@@ -15,14 +15,7 @@ class SaleTest {
     }
 
     @Test
-    void getTotal() {
-    }
-
-    @Test
     void applyDiscount() {
     }
 
-    @Test
-    void endSale() {
-    }
 }

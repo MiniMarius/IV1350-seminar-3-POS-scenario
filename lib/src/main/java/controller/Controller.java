@@ -35,31 +35,34 @@ public class Controller {
      * If item identifier entered is matched with item in inventory system we will add it to the sale
      * @param itemId the id of the item we are looking for in inventory system
      * @param amountOfItems The amount of said item we are looking for
+     *
+     *
      */
-    public void enterItem(Integer itemId, int amountOfItems){
+    public String enterItem(Integer itemId, int amountOfItems){
         Item searchedItem = externalInventorySystem.checkInventory(itemId, amountOfItems);
+        if (searchedItem == null) {
+            return "error: identifier " + itemId + " Invalid";
+        }
         sale.addItem(searchedItem, amountOfItems);
         sale.UpdateRunningTotal(searchedItem, amountOfItems);
-        System.out.println(sale);
+        return sale.toString();
     }
 
     /**
      * Applies discount requested by customer
      * @param customerId the id to be checked for discount level.
      */
-    public void discountRequest(Integer customerId){
-        discount = discountCatalog.calculateDiscount(customerId);
+    public Double discountRequest(Integer customerId){
+        discount = discountCatalog.calculateDiscount(customerId, sale);
         sale.applyDiscount(discount);
+        return sale.getTotal();
     }
 
     /**
      * ends the sale, confirming items scanned in sale
      */
-    public void endSale(){
-        SaleInformation saleinformation = sale.endSale();
-        externalAccountingSystem.logSale(saleinformation);
-        Receipt receipt = new Receipt(saleinformation);
-        printer.printReceipt(receipt);
+    public Double endSale(){
+        return sale.getTotal();
     }
 
     /**
@@ -69,6 +72,11 @@ public class Controller {
      */
     public Double makePayment(Double amount){
         Payment payment = new Payment(amount);
+        SaleInformation saleInformation = sale.confirmPaidSale(payment);
+        Receipt receipt = new Receipt(saleInformation);
+        printer.printReceipt(receipt);
+        externalAccountingSystem.logSale(saleInformation);
+        externalInventorySystem.removeItemFromInventory(saleInformation);
         return register.calculateChange(payment, sale);
     }
 

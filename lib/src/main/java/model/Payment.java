@@ -17,4 +17,9 @@ public class Payment {
     public Double getAmount() {
         return amount;
     }
+
+
+    public String toString() {
+        return "" + amount;
+    }
 }

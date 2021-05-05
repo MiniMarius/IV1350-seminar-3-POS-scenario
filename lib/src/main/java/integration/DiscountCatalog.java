@@ -1,6 +1,7 @@
 package integration;
 
 import model.Item;
+import model.Sale;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,6 @@ import java.util.ArrayList;
  */
 public class DiscountCatalog {
     private Discount discount;
-    private Integer numOfItems;
-    private Double totalCost;
-    private Integer levelOfDiscount;
     private Integer customerId;
     private ArrayList<Item> discountedItems = new ArrayList<>();
 
@@ -32,12 +30,14 @@ public class DiscountCatalog {
      * @param idNumber The id to be compared to the stored customerId eligible for discount
      * @return Discount object with certain discount stored inside after calculation
      */
-    public Discount calculateDiscount(Integer idNumber) {
+    public Discount calculateDiscount(Integer idNumber, Sale sale) {
         discount = new Discount();
-        if (idNumber.equals(customerId)) {
-            discount.SetDiscount(50.0);
+        if (idNumber.equals(customerId) && sale.getTotal() >= 50.0) {
+            discount.SetDiscount(10.0);
+        }
+        else if (idNumber.equals(customerId) && sale.getTotal() >= 100.0) {
+            discount.SetDiscount(20.0);
         }
         return discount;
-
     }
 }

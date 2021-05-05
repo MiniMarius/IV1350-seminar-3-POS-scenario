@@ -1,6 +1,7 @@
 package integration;
 import java.util.ArrayList;
 import model.Item;
+import model.SaleInformation;
 
 /**
  * Class representing a inventory system with items stored in an Arraylist of items objects.
@@ -39,6 +40,9 @@ public class ExternalInventorySystem {
         itemsInStock.add(item);
     }
 
+    public void removeItemFromInventory(SaleInformation saleInformation) {
+
+    }
     /**
      *
      * @return returns whole Arraylist of items in stock

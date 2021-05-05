@@ -6,14 +6,15 @@ import java.util.ArrayList;
 
 public class Sale {
     private ArrayList<Item> scannedItems = new ArrayList<>();
-    private Double total;
+    private Double runningTotalWithTax;
+    private Discount Discount;
 
     public Sale () {
-        total = 0.0;
+        runningTotalWithTax = 0.0;
     }
 
     public void UpdateRunningTotal(Item item, Integer amountOfitems) {
-        total += item.getPrice() * amountOfitems;
+        runningTotalWithTax += item.getPrice() * amountOfitems * item.getVat();
     }
 
     public void addItem(Item item, Integer amountOfItems) {
@@ -22,19 +23,26 @@ public class Sale {
         }
     }
     public Double getTotal() {
-        return total;
+        if (Discount != null) {
+            return runningTotalWithTax - Discount.GetDiscount();
+        }
+        return runningTotalWithTax;
+    }
+    public void setTotalWithTax(Double amount) {
+        runningTotalWithTax = amount;
     }
 
     public String toString() {
-        return "Sale: " +
-                "scannedItems: " + scannedItems +
-                ", total: " + total;
+        return "scannedItems: " + scannedItems +
+                "\n" + "RunningTotal: " + runningTotalWithTax + "\n";
     }
+
     public void applyDiscount(Discount discount) {
-        total -= discount.GetDiscount();
+        Discount = discount;
     }
-    public SaleInformation endSale() {
-        SaleInformation saleInformation = new SaleInformation();
+
+    public SaleInformation confirmPaidSale(Payment payment) {
+        SaleInformation saleInformation = new SaleInformation(payment, Discount);
         saleInformation.confirmSale(scannedItems);
         return saleInformation;
     }
