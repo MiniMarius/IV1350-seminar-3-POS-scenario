@@ -72,6 +72,15 @@ public class Sale {
         runningTotalWithTax = amount;
     }
 
+
+    /**
+     *
+     * @param discount set a discount object as attribute
+     */
+    public void setDiscount(Discount discount) {
+        Discount = discount;
+    }
+
     /**
      *
      * @return a string representation of the items scanned and running total

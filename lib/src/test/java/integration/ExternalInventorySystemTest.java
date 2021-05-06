@@ -1,5 +1,6 @@
 package integration;
 
+import model.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,14 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class ExternalInventorySystemTest {
 
     @Test
-    void checkInventory() {
-    }
+    void testCheckInventory() {
+        ExternalInventorySystem externalInventorySystem = new ExternalInventorySystem();
+        Integer itemId = 8;
+        Item result = externalInventorySystem.checkInventory(itemId);
 
-    @Test
-    void addItemToInventory() {
-    }
-
-    @Test
-    void getAllItemsInStock() {
+        assertNotNull(result);
     }
 }
