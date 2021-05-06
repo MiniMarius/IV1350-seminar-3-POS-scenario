@@ -34,7 +34,6 @@ public class SaleInformation {
     public void confirmSale(ArrayList<Item> confirmedItems) {
         boughtItems = confirmedItems;
         timeOfPurchase = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-
     }
 
     @Override

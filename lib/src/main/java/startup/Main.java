@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Printer printer = new Printer();
-        DiscountCatalog discountCatalog = new DiscountCatalog();
+        DiscountCatalog discountCatalog = new DiscountCatalog(8);
         ExternalAccountingSystem externalAccountingSystem = new ExternalAccountingSystem();
         ExternalInventorySystem externalInventorySystem = new ExternalInventorySystem();
         Controller controller = new Controller(printer, discountCatalog, externalAccountingSystem, externalInventorySystem);

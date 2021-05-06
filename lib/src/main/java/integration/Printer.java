@@ -3,7 +3,7 @@ package integration;
 import model.Receipt;
 
 /**
- * used for printing receipts
+ * simulating a external printer system
  */
 public class Printer {
     public Printer() {

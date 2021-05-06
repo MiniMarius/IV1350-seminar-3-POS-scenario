@@ -36,6 +36,15 @@ public class Sale {
         }
     }
 
+
+    /**
+     *
+     * @param scannedItems the ArrayList of items to be set as the scanned items
+     */
+    public void setScannedItems(ArrayList<Item> scannedItems) {
+        this.scannedItems = scannedItems;
+    }
+
     /**
      * Returns the sale's total
      * @return the runningTotalWithTax OR runningTotalWithTax - discounts depending on if discount exists
@@ -90,4 +99,6 @@ public class Sale {
         saleInformation.confirmSale(scannedItems);
         return saleInformation;
     }
+
+
 }

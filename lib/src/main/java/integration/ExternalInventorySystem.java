@@ -4,7 +4,7 @@ import model.Item;
 import model.SaleInformation;
 
 /**
- * Class representing a inventory system with items stored in an Arraylist of items objects.
+ * Class representing a external inventory system with items stored in an Arraylist of items objects.
  */
 public class ExternalInventorySystem {
     private ArrayList<Item> itemsInStock = new ArrayList<>();

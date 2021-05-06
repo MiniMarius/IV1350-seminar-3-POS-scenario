@@ -29,7 +29,6 @@ public class View {
         System.out.println(controller.enterItem(6, 1));
 
         System.out.println("Sale ended" + "\n" + "Total with taxes: " + controller.endSale());
-
         System.out.println("Discounted Total with taxes: " + controller.discountRequest(8));
         System.out.println("Handing over payment");
         Double change = controller.makePayment(500.00);

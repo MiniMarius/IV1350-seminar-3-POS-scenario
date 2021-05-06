@@ -9,7 +9,7 @@ class RegisterTest {
 
 
     @Test
-    void calculateChange() {
+    void testCalculateChange() {
         Sale sale = new Sale();
         sale.setTotalWithTax(150.0);
         Payment payment = new Payment(200.0);

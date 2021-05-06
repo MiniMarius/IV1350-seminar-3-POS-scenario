@@ -66,19 +66,30 @@ public class Controller {
     }
 
     /**
-     *
+     * Receives payment to confirm the sale before returning the due change
      * @param amount the amount used to pay with
      * @return the calculated amount of change that we are due
      */
     public Double makePayment(Double amount){
         Payment payment = new Payment(amount);
+        confirmSale(payment);
+        return register.calculateChange(payment, sale);
+    }
+
+    /**
+     * Confirms the sale by passing the parameter payment into the sale object, creating the now
+     * confirmed saleInformation. SaleInformation is then sent to necessary external systems and
+     * sent away for printing.
+     * @param payment
+     */
+    private void confirmSale(Payment payment) {
         SaleInformation saleInformation = sale.createSaleInfo(payment);
         Receipt receipt = new Receipt(saleInformation);
         printer.printReceipt(receipt);
         externalAccountingSystem.logSale(saleInformation);
         externalInventorySystem.updateInventory(saleInformation);
-        return register.calculateChange(payment, sale);
     }
+
 
     /**
      * creates a new sale object
