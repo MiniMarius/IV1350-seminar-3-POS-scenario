@@ -23,9 +23,9 @@ public class ExternalInventorySystem {
      * @param itemId and
      * @return item The found item in stock
      */
-    public Item checkInventory(Integer itemId, int amount) {
+    public Item checkInventory(Integer itemId) {
         for (Item item : itemsInStock) {
-            if (item.getStoreKeepingUnitNumber().equals(itemId)) {
+            if (item.getStoreKeepingUnitNumber().equals(itemId)){
                 return item;
             }
         }
@@ -40,9 +40,10 @@ public class ExternalInventorySystem {
         itemsInStock.add(item);
     }
 
-    public void removeItemFromInventory(SaleInformation saleInformation) {
+    public void updateInventory(SaleInformation saleInformation) {
+        itemsInStock.removeAll(saleInformation.getBoughtItems());
+        }
 
-    }
     /**
      *
      * @return returns whole Arraylist of items in stock

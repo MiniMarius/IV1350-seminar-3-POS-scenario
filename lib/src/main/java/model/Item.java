@@ -71,8 +71,51 @@ public class Item {
 
     /**
      *
+     * @param name the name to be set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @param description the description String to be set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     *
+     * @param price the price to be set for the item
+     */
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    /**
+     *
+     * @param vat the items vat to be set
+     */
+    public void setVat(Double vat) {
+        this.vat = (vat/100) + 1;
+    }
+
+    /**
+     *
+     * @param storeKeepingUnitNumber set an items store keeping number
+     */
+    public void setStoreKeepingUnitNumber(Integer storeKeepingUnitNumber) {
+        this.storeKeepingUnitNumber = storeKeepingUnitNumber;
+    }
+
+    /**
+     *
      * @return a string representation of the item
      */
+
+
+
     public String toString() {
         return "Item " +
                 "name: " + name + '\'' +

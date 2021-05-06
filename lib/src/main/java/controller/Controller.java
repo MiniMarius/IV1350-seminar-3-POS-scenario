@@ -38,8 +38,8 @@ public class Controller {
      *
      *
      */
-    public String enterItem(Integer itemId, int amountOfItems){
-        Item searchedItem = externalInventorySystem.checkInventory(itemId, amountOfItems);
+    public String enterItem(Integer itemId, Integer amountOfItems){
+        Item searchedItem = externalInventorySystem.checkInventory(itemId);
         if (searchedItem == null) {
             return "error: identifier " + itemId + " Invalid";
         }
@@ -76,7 +76,7 @@ public class Controller {
         Receipt receipt = new Receipt(saleInformation);
         printer.printReceipt(receipt);
         externalAccountingSystem.logSale(saleInformation);
-        externalInventorySystem.removeItemFromInventory(saleInformation);
+        externalInventorySystem.updateInventory(saleInformation);
         return register.calculateChange(payment, sale);
     }
 

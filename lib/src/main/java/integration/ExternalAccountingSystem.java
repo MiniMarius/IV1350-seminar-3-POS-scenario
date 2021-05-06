@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class ExternalAccountingSystem {
     private ArrayList<SaleInformation> loggedSales = new ArrayList<SaleInformation>();
+    private Double revenue;
 
 
     public ExternalAccountingSystem() {
@@ -29,5 +30,9 @@ public class ExternalAccountingSystem {
      */
     public ArrayList<SaleInformation> getLoggedSales() {
         return loggedSales;
+    }
+
+    public void calculateRevenue() {
+
     }
 }
