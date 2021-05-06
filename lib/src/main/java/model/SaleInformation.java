@@ -46,6 +46,10 @@ public class SaleInformation {
                 "Payment: " + payment;
     }
 
+    /**
+     *
+     * @return the ArrayList of bought items
+     */
     public ArrayList<Item> getBoughtItems() {
         return boughtItems;
     }

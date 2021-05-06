@@ -26,17 +26,24 @@ public class DiscountCatalog {
     }
 
     /**
-     *
+     * Calculates discount for customer if the discount rules are matched i.e the sale contains discounted items and
+     * the customer id is matched with the one needed for a discount while the sale total is high enough
      * @param idNumber The id to be compared to the stored customerId eligible for discount
-     * @return Discount object with certain discount stored inside after calculation
+     * @return Discount the created instance of Discount to be returned after calculating discount amount
      */
     public Discount calculateDiscount(Integer idNumber, Sale sale) {
         discount = new Discount();
-        if (idNumber.equals(customerId) && sale.getTotal() >= 50.0) {
-            discount.SetDiscount(10.0);
-        }
-        else if (idNumber.equals(customerId) && sale.getTotal() >= 100.0) {
-            discount.SetDiscount(20.0);
+        for (Item item : sale.getScannedItems()) {
+            for (Item discountedItem : discountedItems) {
+                if (item.getStoreKeepingUnitNumber().equals(discountedItem.getStoreKeepingUnitNumber())) {
+                    if (idNumber.equals(customerId) && sale.getTotal() >= 50.0) {
+                        discount.setDiscount(10.0);
+                    }
+                    else if (idNumber.equals(customerId) && sale.getTotal() >= 100.0) {
+                        discount.setDiscount(20.0);
+                    }
+                }
+            }
         }
         return discount;
     }

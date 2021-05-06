@@ -33,13 +33,9 @@ public class ExternalInventorySystem {
     }
 
     /**
-     *
-     * @param item The item to be added to the inventory system
+     * Compares sold items with items in stock and removing sold items from stock i.e keeping inventory up to date
+     * @param saleInformation instance of SaleInformation which holds an ArrayList of items to be compared with stock
      */
-    public void addItemToInventory(Item item) {
-        itemsInStock.add(item);
-    }
-
     public void updateInventory(SaleInformation saleInformation) {
         itemsInStock.removeAll(saleInformation.getBoughtItems());
         }

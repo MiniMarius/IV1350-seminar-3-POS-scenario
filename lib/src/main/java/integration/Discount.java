@@ -13,7 +13,7 @@ public class Discount {
      *
      * @param amount - the amount to be set as discount amount
      */
-    public void SetDiscount(Double amount) {
+    public void setDiscount(Double amount) {
         discount = amount;
     }
 
@@ -21,7 +21,7 @@ public class Discount {
      *
      * @return discount amount
      */
-    public Double GetDiscount() {
+    public Double getDiscount() {
         return discount;
     }
 

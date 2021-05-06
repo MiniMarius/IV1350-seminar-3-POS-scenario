@@ -42,9 +42,17 @@ public class Sale {
      */
     public Double getTotal() {
         if (Discount != null) {
-            return runningTotalWithTax - Discount.GetDiscount();
+            return runningTotalWithTax - Discount.getDiscount();
         }
         return runningTotalWithTax;
+    }
+
+    /**
+     *
+     * @return returns an ArrayList of the scanned items
+     */
+    public ArrayList<Item> getScannedItems() {
+        return scannedItems;
     }
 
     /**
@@ -77,7 +85,7 @@ public class Sale {
      * @param payment instance of Payment which is used for creation of SaleInformation instance
      * @return the newly created SaleInformation instance which contains the items scanned, payment and discount for the sale
      */
-    public SaleInformation confirmPaidSale(Payment payment) {
+    public SaleInformation createSaleInfo(Payment payment) {
         SaleInformation saleInformation = new SaleInformation(payment, Discount);
         saleInformation.confirmSale(scannedItems);
         return saleInformation;

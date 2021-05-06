@@ -12,6 +12,6 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return "" + saleInformation;
+        return "Printing Receipt:" + "\n" + saleInformation;
     }
 }

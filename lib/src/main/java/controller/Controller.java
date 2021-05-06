@@ -72,7 +72,7 @@ public class Controller {
      */
     public Double makePayment(Double amount){
         Payment payment = new Payment(amount);
-        SaleInformation saleInformation = sale.confirmPaidSale(payment);
+        SaleInformation saleInformation = sale.createSaleInfo(payment);
         Receipt receipt = new Receipt(saleInformation);
         printer.printReceipt(receipt);
         externalAccountingSystem.logSale(saleInformation);
