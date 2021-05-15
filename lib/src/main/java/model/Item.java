@@ -24,6 +24,12 @@ public class Item {
     }
 
     /**
+     * creates empty item
+     */
+    public Item() {
+    }
+
+    /**
      *
      * @param name The name of the item
      * @param description A description of the item to be created
@@ -166,6 +172,7 @@ public class Item {
                 ", description: " + description + '\'' +
                 ", price: " + price +
                 ", vat: " + vat +
-                ", storeKeepingUnitNumber: " + storeKeepingUnitNumber;
+                ", storeKeepingUnitNumber: " + storeKeepingUnitNumber +
+                ", amount: " + amount;
     }
 }

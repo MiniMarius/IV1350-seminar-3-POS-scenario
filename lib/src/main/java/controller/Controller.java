@@ -41,7 +41,7 @@ public class Controller {
     public String enterItem(Integer itemId, Integer amountOfItems) {
         Item searchedItem = externalInventorySystem.checkInventory(itemId, amountOfItems);
         if (searchedItem == null) {
-            return "error: identifier " + itemId + " Invalid";
+            return "error: identifier " + itemId + " Invalid" + "\n";
         }
         sale.addItem(searchedItem);
         sale.updateRunningTotal();
