@@ -11,7 +11,16 @@ public class Item {
     private Integer storeKeepingUnitNumber;
     private Integer amount;
 
-    public Item() {
+    /**
+     * a copy constructor
+     * @param item the item to be shallow-copied
+     */
+    public Item(Item item) {
+        this.name = item.name;
+        this.description = item.description;
+        this.price = item.getPrice();
+        this.vat = item.getVat();
+        this.storeKeepingUnitNumber = item.storeKeepingUnitNumber;
     }
 
     /**

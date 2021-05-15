@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Sale {
     private ArrayList<Item> scannedItems = new ArrayList<>();
+    private Item lastScannedItem;
     private Double runningTotalWithTax;
     private Discount discount;
 
@@ -31,15 +32,19 @@ public class Sale {
      * @param amountOfItem the amount of said item to add to the ArrayList scannedItems
      */
     public void addItem(Item item, Integer amountOfItem) {
-        for (Item scannedItem : scannedItems) {
+        lastScannedItem = item;
+        item.setAmount(amountOfItem);
+        scannedItems.add(item);
+        /*for (Item scannedItem : scannedItems) {
             if (scannedItem.getStoreKeepingUnitNumber().equals(item.getStoreKeepingUnitNumber())){
                 scannedItem.increaseAmount(amountOfItem);
             }
             else {
-                item.setAmount(amountOfItem);
-                scannedItems.add(item);
             }
+
         }
+
+         */
     }
 
 
@@ -91,10 +96,10 @@ public class Sale {
 
     /**
      *
-     * @return a string representation of the items scanned and running total
-     */
+     * @return a string representation of the item scanned and running total
+     */@Override
     public String toString() {
-        return "scannedItems: " + scannedItems +
+        return "scanned Item: " + lastScannedItem.getDescription() +
                 "\n" + "RunningTotal: " + runningTotalWithTax + "\n";
     }
 

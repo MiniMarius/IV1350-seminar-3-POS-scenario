@@ -14,19 +14,19 @@ public class ExternalInventorySystem {
      */
     public ExternalInventorySystem() {
         itemsInStock.add( new Item("Kebab", "A bag of kebab-meat, 400 g", 135.0, 10.0, 8, 50));
-        itemsInStock.add( new Item("Nuggets extra thick", "A bag of chicken-nuggets, 20 pieces", 50.0, 25.0, 3, 50));
+        itemsInStock.add( new Item("Nuggets extra thick", "A bag of chicken-nuggets", 50.0, 25.0, 3, 50));
         itemsInStock.add( new Item("Sour Apple candy", "A bag of candy, green and yellow", 60.0, 25.0, 5, 50));
         itemsInStock.add( new Item("ice-cream superIcy", "A big tub of ice cream", 22.0, 25.0, 6 ,50));
     }
     /**
      * Checks inventory for item with matching itemId and if it's in stock
      * @param itemId the id to be matched with item in inventory system
-     * @return item The found item in stock
+     * @return foundItem a copy of found item in stock
      */
     public Item checkInventory(Integer itemId, Integer wantedAmount) {
         for (Item item : itemsInStock) {
-            if (item.getStoreKeepingUnitNumber().equals(itemId) && item.getAmount() > wantedAmount){
-                return item;
+            if (item.getStoreKeepingUnitNumber().equals(itemId) && item.getAmount() >= wantedAmount){
+                return new Item(item);
             }
         }
         return null;
