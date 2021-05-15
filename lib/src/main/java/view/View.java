@@ -1,5 +1,6 @@
 package view;
 import controller.*;
+import model.Sale;
 
 /**
  * View will simulate user input
@@ -23,10 +24,15 @@ public class View {
         controller.makeNewSale();
         System.out.println("New sale started");
         System.out.println("Scanning items");
-        System.out.println(controller.enterItem(3, 1));
-        System.out.println(controller.enterItem(11, 1));
-        System.out.println(controller.enterItem(3, 5));
-        System.out.println(controller.enterItem(6, 1));
+
+        Sale activeSale = controller.enterItem(3, 1);
+        System.out.println(activeSale);
+        activeSale = controller.enterItem(11, 1);
+        System.out.println(activeSale);
+        activeSale = controller.enterItem(3, 5);
+        System.out.println(activeSale);
+        activeSale = controller.enterItem(6, 1);
+        System.out.println(activeSale);
 
         System.out.println("Sale ended" + "\n" + "Total with taxes: " + controller.endSale());
         System.out.println("Discounted Total with taxes: " + controller.discountRequest(8));

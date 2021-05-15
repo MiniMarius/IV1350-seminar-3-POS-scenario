@@ -38,14 +38,14 @@ public class Controller {
      *
      *
      */
-    public String enterItem(Integer itemId, Integer amountOfItems) {
+    public Sale enterItem(Integer itemId, Integer amountOfItems) {
         Item searchedItem = externalInventorySystem.checkInventory(itemId, amountOfItems);
         if (searchedItem == null) {
-            return "error: identifier " + itemId + " Invalid" + "\n";
+            return null;
         }
         sale.addItem(searchedItem);
         sale.updateRunningTotal();
-        return sale.toString();
+        return sale;
     }
 
     /**

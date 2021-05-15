@@ -21,7 +21,7 @@ public class ExternalInventorySystem {
     /**
      * Checks inventory for item with matching itemId and if it's in stock
      * @param itemId the id to be matched with item in inventory system
-     * @return foundItem a copy of found item in stock
+     * @return foundItem a copy of found item in stock with the wanted amount inside
      */
     public Item checkInventory(Integer itemId, Integer wantedAmount) {
         for (Item item : itemsInStock) {
