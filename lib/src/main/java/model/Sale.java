@@ -20,12 +20,11 @@ public class Sale {
     /**
      * Takes all scanned item's price, vat and amount to calculate running total
      */
-    private void updateRunningTotal() {
+    public void updateRunningTotal() {
         runningTotalWithTax = 0.0;
         for (Item scannedItem : scannedItems) {
             runningTotalWithTax += scannedItem.getPrice() * scannedItem.getAmount() * scannedItem.getVat();
         }
-        //runningTotalWithTax += lastScannedItem.getPrice() * lastScannedItem.getAmount() * lastScannedItem.getVat();
     }
 
     /**
@@ -38,12 +37,10 @@ public class Sale {
         for (Item scannedItem : scannedItems) {
             if (scannedItem.getStoreKeepingUnitNumber().equals(item.getStoreKeepingUnitNumber())) {
                 scannedItem.increaseAmount(item.getAmount());
-                updateRunningTotal();
                 return;
             }
         }
         scannedItems.add(item);
-        updateRunningTotal();
     }
 
 

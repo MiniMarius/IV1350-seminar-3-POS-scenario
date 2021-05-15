@@ -44,6 +44,7 @@ public class Controller {
             return "error: identifier " + itemId + " Invalid";
         }
         sale.addItem(searchedItem);
+        sale.updateRunningTotal();
         return sale.toString();
     }
 
