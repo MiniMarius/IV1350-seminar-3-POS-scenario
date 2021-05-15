@@ -93,8 +93,8 @@ public class Sale {
      * @return a string representation of the item scanned and running total
      */@Override
     public String toString() {
-        return "scanned Item: " + lastScannedItem.getDescription() +
-                "\n" + "RunningTotal: " + runningTotalWithTax + "\n";
+         return "scanned Item: " + lastScannedItem.getDescription() + "," + " Price: " + lastScannedItem.getPrice() +
+                "\n" + "RunningTotal with tax: " + runningTotalWithTax + "\n";
     }
 
     /**

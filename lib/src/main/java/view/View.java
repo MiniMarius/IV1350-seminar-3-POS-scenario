@@ -25,19 +25,23 @@ public class View {
         System.out.println("New sale started");
         System.out.println("Scanning items");
 
-        Sale activeSale = controller.enterItem(3, 1);
-        System.out.println(activeSale);
-        activeSale = controller.enterItem(11, 1);
-        System.out.println(activeSale);
-        activeSale = controller.enterItem(3, 5);
-        System.out.println(activeSale);
-        activeSale = controller.enterItem(6, 1);
-        System.out.println(activeSale);
+        showSaleInfo(controller.enterItem(3, 1));
+        showSaleInfo(controller.enterItem(11, 1));
+        showSaleInfo(controller.enterItem(3, 5));
+        showSaleInfo(controller.enterItem(6, 1));
 
         System.out.println("Sale ended" + "\n" + "Total with taxes: " + controller.endSale());
         System.out.println("Discounted Total with taxes: " + controller.discountRequest(8));
         System.out.println("Handing over payment");
         Double change = controller.makePayment(500.00);
         System.out.println("Change to customer: " + change);
+    }
+
+    private void showSaleInfo(Sale sale) {
+        if (sale == null) {
+            System.out.println("The identifier is invalid" + "\n");
+        }
+        else
+            System.out.println(sale);
     }
 }
