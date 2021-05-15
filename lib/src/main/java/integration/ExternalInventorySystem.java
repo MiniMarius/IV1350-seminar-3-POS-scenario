@@ -26,7 +26,9 @@ public class ExternalInventorySystem {
     public Item checkInventory(Integer itemId, Integer wantedAmount) {
         for (Item item : itemsInStock) {
             if (item.getStoreKeepingUnitNumber().equals(itemId) && item.getAmount() >= wantedAmount){
-                return new Item(item);
+                Item foundItem = new Item(item);
+                foundItem.setAmount(wantedAmount);
+                return foundItem;
             }
         }
         return null;

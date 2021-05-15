@@ -18,33 +18,32 @@ public class Sale {
     }
 
     /**
-     * Takes a scanned item's price, vat and amount to calculate running total
-     * @param scannedItem an instance of Item to take the price of
+     * Takes all scanned item's price, vat and amount to calculate running total
      */
-    public void UpdateRunningTotal(Item scannedItem) {
-        runningTotalWithTax += scannedItem.getPrice() * scannedItem.getAmount() * scannedItem.getVat();
+    private void updateRunningTotal() {
+        runningTotalWithTax = 0.0;
+        for (Item scannedItem : scannedItems) {
+            runningTotalWithTax += scannedItem.getPrice() * scannedItem.getAmount() * scannedItem.getVat();
+        }
+        //runningTotalWithTax += lastScannedItem.getPrice() * lastScannedItem.getAmount() * lastScannedItem.getVat();
     }
 
     /**
      * Adds the scanned item to the active sale. If item already scanned, increase quantity of item sold by
      * amount scanned
      * @param item instance of Item to be added to the Arraylist of items scanned
-     * @param amountOfItem the amount of said item to add to the ArrayList scannedItems
      */
-    public void addItem(Item item, Integer amountOfItem) {
+    public void addItem(Item item) {
         lastScannedItem = item;
-        item.setAmount(amountOfItem);
-        scannedItems.add(item);
-        /*for (Item scannedItem : scannedItems) {
-            if (scannedItem.getStoreKeepingUnitNumber().equals(item.getStoreKeepingUnitNumber())){
-                scannedItem.increaseAmount(amountOfItem);
+        for (Item scannedItem : scannedItems) {
+            if (scannedItem.getStoreKeepingUnitNumber().equals(item.getStoreKeepingUnitNumber())) {
+                scannedItem.increaseAmount(item.getAmount());
+                updateRunningTotal();
+                return;
             }
-            else {
-            }
-
         }
-
-         */
+        scannedItems.add(item);
+        updateRunningTotal();
     }
 
 
@@ -61,11 +60,9 @@ public class Sale {
      * @return the runningTotalWithTax OR runningTotalWithTax - discounts depending on if discount exists
      */
     public Double getTotal() {
-        /*
         if (discount != null) {
             return runningTotalWithTax - discount.getDiscount();
         }
-         */
         return runningTotalWithTax;
     }
 

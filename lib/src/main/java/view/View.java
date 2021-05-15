@@ -25,7 +25,7 @@ public class View {
         System.out.println("Scanning items");
         System.out.println(controller.enterItem(3, 1));
         System.out.println(controller.enterItem(11, 1));
-        System.out.println(controller.enterItem(3, 2));
+        System.out.println(controller.enterItem(3, 5));
         System.out.println(controller.enterItem(6, 1));
 
         System.out.println("Sale ended" + "\n" + "Total with taxes: " + controller.endSale());

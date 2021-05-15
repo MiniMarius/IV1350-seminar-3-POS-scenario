@@ -43,8 +43,7 @@ public class Controller {
         if (searchedItem == null) {
             return "error: identifier " + itemId + " Invalid";
         }
-        sale.addItem(searchedItem, amountOfItems);
-        sale.UpdateRunningTotal(searchedItem);
+        sale.addItem(searchedItem);
         return sale.toString();
     }
 
