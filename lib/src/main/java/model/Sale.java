@@ -10,29 +10,35 @@ import java.util.ArrayList;
 public class Sale {
     private ArrayList<Item> scannedItems = new ArrayList<>();
     private Double runningTotalWithTax;
-    private Discount Discount;
+    private Discount discount;
 
     public Sale () {
         runningTotalWithTax = 0.0;
     }
 
     /**
-     *
-     * @param item an instance of Item to take the price of
-     * @param amountOfItems The amount of said item to increase the total with
+     * Takes a scanned item's price, vat and amount to calculate running total
+     * @param scannedItem an instance of Item to take the price of
      */
-    public void UpdateRunningTotal(Item item, Integer amountOfItems) {
-        runningTotalWithTax += item.getPrice() * amountOfItems * item.getVat();
+    public void UpdateRunningTotal(Item scannedItem) {
+        runningTotalWithTax += scannedItem.getPrice() * scannedItem.getAmount() * scannedItem.getVat();
     }
 
     /**
-     *
+     * Adds the scanned item to the active sale. If item already scanned, increase quantity of item sold by
+     * amount scanned
      * @param item instance of Item to be added to the Arraylist of items scanned
-     * @param amountOfItems the amount of said item to add to the ArrayList
+     * @param amountOfItem the amount of said item to add to the ArrayList scannedItems
      */
-    public void addItem(Item item, Integer amountOfItems) {
-        for (int i = 0; i < amountOfItems; i++) {
-            scannedItems.add(item);
+    public void addItem(Item item, Integer amountOfItem) {
+        for (Item scannedItem : scannedItems) {
+            if (scannedItem.getStoreKeepingUnitNumber().equals(item.getStoreKeepingUnitNumber())){
+                scannedItem.increaseAmount(amountOfItem);
+            }
+            else {
+                item.setAmount(amountOfItem);
+                scannedItems.add(item);
+            }
         }
     }
 
@@ -50,9 +56,11 @@ public class Sale {
      * @return the runningTotalWithTax OR runningTotalWithTax - discounts depending on if discount exists
      */
     public Double getTotal() {
-        if (Discount != null) {
-            return runningTotalWithTax - Discount.getDiscount();
+        /*
+        if (discount != null) {
+            return runningTotalWithTax - discount.getDiscount();
         }
+         */
         return runningTotalWithTax;
     }
 
@@ -78,7 +86,7 @@ public class Sale {
      * @param discount set a discount object as attribute
      */
     public void setDiscount(Discount discount) {
-        Discount = discount;
+        this.discount = discount;
     }
 
     /**
@@ -95,7 +103,7 @@ public class Sale {
      * @param discount instance of Discount class to be applied as attribute to sale
      */
     public void applyDiscount(Discount discount) {
-        Discount = discount;
+        this.discount = discount;
     }
 
     /**
@@ -104,7 +112,7 @@ public class Sale {
      * @return the newly created SaleInformation instance which contains the items scanned, payment and discount for the sale
      */
     public SaleInformation createSaleInfo(Payment payment) {
-        SaleInformation saleInformation = new SaleInformation(payment, Discount);
+        SaleInformation saleInformation = new SaleInformation(payment, discount);
         saleInformation.confirmSale(scannedItems);
         return saleInformation;
     }

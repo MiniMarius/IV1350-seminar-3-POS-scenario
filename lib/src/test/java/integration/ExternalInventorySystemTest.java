@@ -11,7 +11,7 @@ class ExternalInventorySystemTest {
     void testCheckInventory() {
         ExternalInventorySystem externalInventorySystem = new ExternalInventorySystem();
         Integer itemId = 8;
-        Item result = externalInventorySystem.checkInventory(itemId);
+        Item result = externalInventorySystem.checkInventory(itemId, 1);
 
         assertNotNull(result);
     }

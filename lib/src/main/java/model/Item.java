@@ -9,6 +9,7 @@ public class Item {
     private Double price;
     private Double vat;
     private Integer storeKeepingUnitNumber;
+    private Integer amount;
 
     public Item() {
     }
@@ -21,12 +22,13 @@ public class Item {
      * @param vat   The percentage of vat of item to be created
      * @param storeKeepingUnitNumber Unique identifier used for identifying item
      */
-    public Item(String name, String description, Double price, Double vat, Integer storeKeepingUnitNumber) {
+    public Item(String name, String description, Double price, Double vat, Integer storeKeepingUnitNumber, Integer amount) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.vat = (vat / 100) + 1;
         this.storeKeepingUnitNumber = storeKeepingUnitNumber;
+        this.amount = amount;
     }
 
     /**
@@ -69,6 +71,15 @@ public class Item {
         return name;
     }
 
+
+    /**
+     *
+     * @return amount of item
+     */
+    public Integer getAmount() {
+        return amount;
+    }
+
     /**
      *
      * @param name the name to be set
@@ -107,6 +118,30 @@ public class Item {
      */
     public void setStoreKeepingUnitNumber(Integer storeKeepingUnitNumber) {
         this.storeKeepingUnitNumber = storeKeepingUnitNumber;
+    }
+
+    /**
+     *
+     * @param amount the amount to be set to
+     */
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    /**
+     * reduces amount of item
+     * @param amount the amount to reduce the amount with
+     */
+    public void reduceAmount(Integer amount) {
+        this.amount -= amount;
+    }
+
+    /**
+     * increases amount of item
+     * @param amount the amount to increase the amount with
+     */
+    public void increaseAmount(Integer amount) {
+        this.amount += amount;
     }
 
     /**

@@ -38,13 +38,13 @@ public class Controller {
      *
      *
      */
-    public String enterItem(Integer itemId, Integer amountOfItems){
-        Item searchedItem = externalInventorySystem.checkInventory(itemId);
+    public String enterItem(Integer itemId, Integer amountOfItems) {
+        Item searchedItem = externalInventorySystem.checkInventory(itemId, amountOfItems);
         if (searchedItem == null) {
             return "error: identifier " + itemId + " Invalid";
         }
         sale.addItem(searchedItem, amountOfItems);
-        sale.UpdateRunningTotal(searchedItem, amountOfItems);
+        sale.UpdateRunningTotal(searchedItem);
         return sale.toString();
     }
 
@@ -70,7 +70,7 @@ public class Controller {
      * @param amount the amount used to pay with
      * @return the calculated amount of change that we are due
      */
-    public Double makePayment(Double amount){
+    public Double makePayment(Double amount) {
         Payment payment = new Payment(amount);
         confirmSale(payment);
         return register.calculateChange(payment, sale);
