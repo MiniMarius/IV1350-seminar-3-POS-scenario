@@ -1,7 +1,7 @@
-package integration;
+package se.kth.integration;
 
-import model.Item;
-import model.Sale;
+import se.kth.model.Item;
+import se.kth.model.Sale;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

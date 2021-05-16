@@ -1,7 +1,7 @@
-package startup;
-import integration.*;
-import controller.*;
-import view.*;
+package se.kth.startup;
+import se.kth.integration.*;
+import se.kth.controller.*;
+import se.kth.view.*;
 /**
  * Does a startup of all the necessary components of the application
  */

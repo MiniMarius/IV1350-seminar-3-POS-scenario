@@ -1,6 +1,6 @@
-package model;
+package se.kth.model;
 
-import integration.Discount;
+import se.kth.integration.Discount;
 
 import java.util.ArrayList;
 

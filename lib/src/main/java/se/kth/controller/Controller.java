@@ -1,7 +1,9 @@
-package controller;
+package se.kth.controller;
 
-import integration.*;
-import model.*;
+import se.kth.integration.*;
+import se.kth.model.*;
+import se.kth.integration.*;
+import se.kth.model.*;
 
 /**
  * The application's controller. Responsible for all the calls to the model

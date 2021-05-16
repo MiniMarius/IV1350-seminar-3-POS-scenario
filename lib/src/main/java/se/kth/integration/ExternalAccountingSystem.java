@@ -1,7 +1,6 @@
-package integration;
+package se.kth.integration;
 
-import model.Sale;
-import model.SaleInformation;
+import se.kth.model.SaleInformation;
 
 import java.util.ArrayList;
 

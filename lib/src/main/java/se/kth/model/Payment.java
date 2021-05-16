@@ -1,4 +1,4 @@
-package model;
+package se.kth.model;
 
 /**
  * Handles the amount of money used to pay for the sale

@@ -1,6 +1,7 @@
-package view;
-import controller.*;
-import model.Sale;
+package se.kth.view;
+import se.kth.controller.*;
+import se.kth.model.Sale;
+import se.kth.controller.Controller;
 
 /**
  * View will simulate user input

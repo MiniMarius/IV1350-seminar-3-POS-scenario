@@ -1,6 +1,6 @@
-package integration;
+package se.kth.integration;
 
-import model.Item;
+import se.kth.model.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

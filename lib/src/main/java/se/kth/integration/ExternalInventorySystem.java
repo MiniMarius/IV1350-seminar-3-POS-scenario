@@ -1,7 +1,7 @@
-package integration;
+package se.kth.integration;
 import java.util.ArrayList;
-import model.Item;
-import model.SaleInformation;
+import se.kth.model.Item;
+import se.kth.model.SaleInformation;
 
 /**
  * Class representing a external inventory system with items stored in an Arraylist of items objects.

@@ -1,5 +1,5 @@
-package model;
-import integration.Discount;
+package se.kth.model;
+import se.kth.integration.Discount;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

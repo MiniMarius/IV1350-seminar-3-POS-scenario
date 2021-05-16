@@ -1,4 +1,4 @@
-package integration;
+package se.kth.integration;
 
 /**
  * contains the discount to be applied to a Sale

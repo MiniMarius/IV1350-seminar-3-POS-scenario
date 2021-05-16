@@ -1,4 +1,4 @@
-package model;
+package se.kth.model;
 
 /**
  * stores the money to be used for change for payments

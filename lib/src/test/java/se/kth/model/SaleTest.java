@@ -1,7 +1,6 @@
-package model;
+package se.kth.model;
 
-import integration.Discount;
-import org.junit.jupiter.api.BeforeAll;
+import se.kth.integration.Discount;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

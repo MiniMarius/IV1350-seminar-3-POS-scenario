@@ -1,4 +1,4 @@
-package model;
+package se.kth.model;
 
 /**
  * Stores instance of SaleInformation to be sent to printer for printing

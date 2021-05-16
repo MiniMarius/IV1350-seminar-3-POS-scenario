@@ -1,6 +1,6 @@
-package integration;
+package se.kth.integration;
 
-import model.Receipt;
+import se.kth.model.Receipt;
 
 /**
  * simulating a external printer system

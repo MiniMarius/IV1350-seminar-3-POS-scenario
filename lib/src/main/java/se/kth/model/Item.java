@@ -1,4 +1,4 @@
-package model;
+package se.kth.model;
 
 /**
  * represents an Item existing in a store
